@@ -12,7 +12,7 @@ module Users
     def call
       user.transaction do
         delete_lesson_completions
-        reset_default_path unless user.path.default_path
+        reset_default_path unless user.path.default_path?
         @success = true
       end
 
